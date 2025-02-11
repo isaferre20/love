@@ -1,0 +1,581 @@
+body {
+    font-family: 'Georgia', serif;
+    text-align: center;
+    background: linear-gradient(to bottom, #f0f3ff, #cddbff);
+    color: #8b0000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container, .login-container, .question-container {
+    padding: 30px; 
+    max-width: 500px;
+    background: rgba(223, 216, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 1s ease-in-out, opacity 0.5s;
+}
+
+.container {
+    position: absolute;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    max-width: 100%;
+}
+
+/* Refined Typography */
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #5a1a6e;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 20px;
+    color: #8a2be2;
+    margin-bottom: 30px;
+}
+
+.button {
+    padding: 14px 28px; 
+    font-size: 20px; 
+    background-color: #944dff;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;
+}
+
+.button:hover {
+    background-color: #a216ff;
+    transform: scale(1.1);
+}
+
+.hidden {
+    display: none;
+}
+
+.fade-out {
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.fade-in {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Free Floating Wheel */
+.wheel-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ensures horizontal centering */
+    justify-content: center; /* Ensures vertical centering */
+    width: 100%;
+    height: auto;
+    margin: 0 auto; /* Centers it horizontally */
+    text-align: center;
+}
+
+
+/* Elegant Wheel Design */
+.wheel {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #6a0dad 0% 12.5%, 
+        #8a2be2 12.5% 25%, 
+        #6a0dad 25% 37.5%, 
+        #8a2be2 37.5% 50%, 
+        #6a0dad 50% 62.5%, 
+        #8a2be2 62.5% 75%, 
+        #6a0dad 75% 87.5%, 
+        #8a2be2 87.5% 100%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 320px; /* Adjust width if necessary */
+    height: 320px;
+    border-radius: 50%;
+    margin: 0 auto; /* Ensures it's centered */
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    transition: transform 3s ease-out;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+    border: 10px solid #4b0082;
+}
+
+/* Floating Pointer */
+.pointer {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 50px solid #e4bf29; /* Gold color for elegance */
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.3)); /* Adds depth */
+    z-index: 10; /* Ensures it stays in front of the wheel */
+    transition: transform 3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+/* Realistic Pointer Movement - Vibrates as Wheel Spins */
+@keyframes pointerShake {
+    0% { transform: translateX(-50%) rotate(178deg); }
+    50% { transform: translateX(-50%) rotate(182deg); }
+    100% { transform: translateX(-50%) rotate(180deg); }
+}
+
+.spinning .pointer {
+    animation: pointerShake 0.2s infinite ease-in-out;
+}
+
+/* Ensures Pointer Stops Moving After Wheel Stops */
+.stopped .pointer {
+    animation: none;
+}
+
+
+/* Smooth Button Styling */
+.button {
+    padding: 14px 32px;
+    font-size: 22px;
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0px 5px 15px rgba(106, 13, 173, 0.3);
+}
+
+.button:hover {
+    background-color: #4b0082;
+    transform: scale(1.1);
+}
+
+/* Wheel Glow Effect */
+.wheel-container::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 0px 30px rgba(255, 215, 0, 0.3);
+    z-index: -1;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-200px); opacity: 0; }
+}
+
+.animated-heart {
+    position: fixed;
+    font-size: 24px;
+    color: red;
+    animation: floatUp 3s linear infinite;
+    pointer-events: none;
+}
+
+input[type="text"], input[type="password"] {
+    font-size: 10px; /* Increased font size for better readability */
+    padding: 8px; /* Added padding for better spacing */
+    border-radius: 8px;
+    border: 2px solid #944dff;
+    width: 80%;
+    margin: 5px 0;
+}
+
+/* Soft glowing effect for proposal section */
+.question-container {
+    animation: fadeIn 1.5s ease-in-out;
+    box-shadow: 0px 0px 20px rgba(148, 77, 255, 0.3);
+}
+
+/* Typing effect */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.typing {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid transparent;
+    animation: typing 2s steps(30, end), blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Heart animations */
+@keyframes floatHeart {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-200px); opacity: 0; }
+}
+
+.animated-heart {
+    position: fixed;
+    font-size: 24px;
+    color: red;
+    animation: floatHeart 3s linear infinite;
+    pointer-events: none;
+}
+
+.love-bubble {
+    position: absolute;
+    top: 50%; /* Center of the wheel */
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(192, 225, 255, 0.9);
+    padding: 20px;
+    border-radius: 25px;
+    font-size: 22px;
+    color: #8b0000;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    text-align: center;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.love-bubble.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #000000;
+    background: none;
+    border: none;
+    font-weight: bold;
+}
+
+.close-button:hover {
+    color: #600000;
+}
+.bubble-button {
+    margin-top: 10px;
+    padding: 12px 20px;
+    font-size: 18px;
+    background-color: #d70000;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    align-self: center;
+}
+
+.bubble-button:hover {
+    background-color: #d70000;
+    transform: scale(1.1);
+}
+
+/* Magic Envelope Animation */
+/* Floating Love Letter Emoji */
+.magic-envelope {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px;
+    cursor: pointer;
+    transition: top 1s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.magic-envelope.slide {
+    top: 50%;
+    transform: translateX(-50%) scale(1.2);
+}
+
+.magic-envelope.open {
+    display: none;
+}
+
+/* Love Letter Pop-up */
+.love-letter {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: #fff4f7;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    z-index: 100;
+    text-align: left;
+}
+
+.love-letter.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #8b0000;
+}
+
+.close-button:hover {
+    color: #960000;
+}
+
+/* Continue Button */
+.continue-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #ff4f81;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.continue-button:hover {
+    background-color: #ff2d64;
+    transform: scale(1.1);
+}
+
+.love-bubble {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(192, 225, 255, 0.9);
+    padding: 20px;
+    border-radius: 25px;
+    font-size: 22px;
+    color: #d70000;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    text-align: center;
+    z-index: 10;
+    display: none;
+}
+.love-bubble.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.challenge-bubble {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(192, 225, 255, 0.9);
+    padding: 20px;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #d70000;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    text-align: center;
+    z-index: 10;
+    display: none; /* Hide initially */
+}
+
+.challenge-bubble.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#challenge-text {
+    font-size: 22px;
+    color: #8a2be2;
+    margin-bottom: 20px;
+}
+
+#timer {
+    font-size: 28px;
+    font-weight: bold;
+    color: #8a2be2;
+    margin: 15px;
+}
+
+.bubble-button {
+    padding: 12px 20px;
+    font-size: 18px;
+    background-color: #8a2be2;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    align-self: center;
+}
+
+.bubble-button:hover {
+    background-color: #6a0dad;
+}
+
+#start-timer-btn {
+    margin-top: 10px;
+    padding: 12px 20px;
+    font-size: 18px;
+    background-color: #8a2be2;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    align-self: center;
+}
+
+#start-timer-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Grand Finale Surprise Pop-up */
+.final-surprise {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: #ffeff7; /* Soft pink background */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 400px;
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    z-index: 200;
+}
+
+.final-surprise.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Title Styling */
+.final-surprise h2 {
+    font-size: 28px;
+    color: #ff4081;
+    font-weight: bold;
+}
+
+/* Text Styling */
+.final-surprise p {
+    font-size: 18px;
+    color: #8b0000;
+    margin: 10px 0;
+}
+
+/* Ultimate Surprise Button */
+.final-button {
+    background: linear-gradient(to right, #ff4081, #ff79a3); /* Soft romantic gradient */
+    color: white;
+    padding: 12px 24px;
+    font-size: 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 15px;
+    box-shadow: 0px 4px 12px rgba(255, 64, 129, 0.3);
+}
+
+.final-button:hover {
+    background: #ff2d64;
+    transform: scale(1.1);
+}
+
+/* Elegant Close Button */
+.final-surprise .close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #8b0000;
+}
+
+.final-surprise .close-button:hover {
+    color: #ff2d64;
+}
+
+.video-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-popup video {
+    width: 80vw;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.video-popup .close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+}

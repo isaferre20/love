@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spin the Wheel of Love</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container" id="login-container">
+        <h1>My heart has a lock, only you have the key 🗝</h1>
+        <p>Please enter our special words to unlock your surprises.</p>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Secret Password">
+        <button class="button" onclick="checkLogin()">Log In</button>
+    </div>
+    
+    <div class="question-container hidden" id="question-container">
+        <h1>Will you pick a rose? 🌹</h1>
+        <p>Say yes, and let me take you somewhere only we belong. 🌙✨</p>
+        <button class="button" onclick="goToWheel()">Waiting for it!</button>
+        <button class="button" onclick="moreYesOptions()" id="no-button">Maybe...</button>
+    </div>
+
+    <div class="question-container hidden" id="question-container">
+        <h1 id="proposal-text"></h1>
+        <p id="proposal-subtext"></p>
+        <button class="button" onclick="goToWheel()" id="yes-button">I'm all yours 💋</button>
+        <button class="button" onclick="moreYesOptions()" id="no-button">Maybe...</button>
+    </div>
+
+    <div class="container hidden" id="main-container">
+        <h1>Are you ready for a little risk, AEG? ♡</h1>
+        <p>Let fate whisper a little magic into your heart ✨</p>
+        <div class="wheel-container">
+            <div class="pointer"></div>
+            <div class="wheel" id="wheel">🎡</div>
+        </div>
+        <button class="button" onclick="spinWheel()">Spin and Discover</button>
+        <div class="result hidden" id="result"></div>
+    </div>
+
+    <!-- Challenge Bubble (Hidden Initially) -->
+    <div id="challenge-bubble" class="challenge-bubble">
+        <p id="challenge-text">Your challenge will appear here!</p>
+        <p id="timer">⏳ Press Start</p>
+        <button class="bubble-button" id="start-timer-btn">Start Challenge ⏳</button>
+        <button class="bubble-button" id="record-video" onclick="recordVideo()" style="display: none;">
+            Click to Spin again!
+        </button>    
+    </div>
+
+    <!-- Placeholder for the Final Surprise Pop-up -->
+    <div id="final-surprise-container"></div>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
