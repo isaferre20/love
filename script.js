@@ -452,7 +452,7 @@ function showLoveLetterPopup() {
             Planetas nacen,<br>
             estrellas arden,<br>
             y el sol se enciende<br>
-            cuando tu cuerpo sobre el mío se extiende.
+            cuando tu cuerpo arriba del mío se extiende.
             <p></p>
             Las flores comparten colores,<br>
             los ríos susurran canciones,<br>
