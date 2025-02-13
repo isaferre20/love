@@ -2,7 +2,7 @@ const surprises = [
     { text: " Words wrapped in warmth, sealed with a kiss", link: "https://example.com/love-letter", emoji: "💌" },
     { text: " Time for a challenge! Can you handle it? 🏋️‍♂️", emoji: "💪🏼" },
     { text: " Unveil a piece of us… one click and you’re there again.", link: "https://jigex.com/HEx4Z", emoji: "🧩" },
-    { text: " The sound of Our Love...Enjoy!", links: ["https://youtu.be/n3IXJ_Ionz8?feature=shared", "https://www.youtube.com/watch?v=jwP1HRmDVII", "https://www.youtube.com/watch?v=eFWUnHJWwCg", "https://www.youtube.com/watch?v=r_FL56rASTs", "https://www.youtube.com/watch?v=90R9FSxbxvs"], emoji: "🎶" },
+    { text: " The sound of Our Love...Enjoy!", links: ["https://youtu.be/n3IXJ_Ionz8?feature=shared", "https://www.youtube.com/watch?v=jwP1HRmDVII", "https://www.youtube.com/watch?v=eFWUnHJWwCg", "https://www.youtube.com/watch?v=r_FL56rASTs"], emoji: "🎶" },
     { text: " A dreamy idea for a perfect date night", emoji: "🥂" },
     { text: "Close your eyes… feel that? That’s me, wrapping you up in love & tracing every inch of you with my touch.", 
         emoji: "🤗", 
