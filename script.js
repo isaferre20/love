@@ -446,25 +446,18 @@ function showLoveLetterPopup() {
         popup.classList.add("love-letter");
         popup.innerHTML = `
             <span class="close-button" onclick="this.parentElement.remove()">✖</span>
-            Tengo ganas de ti
-            <p></p>
+            <p>Tengo ganas de ti</p>
             Tengo ganas de abrazarte,<br> 
             con mis labios besarte<br> 
             y con mis manos acariciarte. 
-            <p></p>
-            Tengo ganas de ti 
             <p></p>
             Tengo ganas de tu voz susurrando,<br>
             mientras nos estamos amando<br> 
             y mis piernas están temblando. 
             <p></p>
-            Tengo ganas de ti
-            <p></p>
             Tengo ganas de dormir en tu pecho,<br> 
             de tenerte en mis brazos estrechos<br>
             hasta despertar con el sol que ilumina nuestro techo. 
-            <p></p>
-            Tengo ganas de ti 
             <p></p>
             Sí, tengo ganas de ti,<br> 
             porque si la distancia tiene el poder de alejar nuestros cuerpos,<br> 
