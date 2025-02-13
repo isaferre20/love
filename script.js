@@ -446,23 +446,29 @@ function showLoveLetterPopup() {
         popup.classList.add("love-letter");
         popup.innerHTML = `
             <span class="close-button" onclick="this.parentElement.remove()">✖</span>
-            Los científicos intentan explicar el origen del universo a través de millares de formulas,
-            pero ignoran el poder de un solo sentimiento: AMOR.
+            Tengo ganas de ti
             <p></p>
-            Planetas nacen,<br>
-            estrellas arden,<br>
-            y el sol se enciende<br>
-            cuando tu cuerpo arriba del mío se extiende.
+            Tengo ganas de abrazarte,<br> 
+            con mis labios besarte<br> 
+            y con mis manos acariciarte. 
             <p></p>
-            Las flores comparten colores,<br>
-            los ríos susurran canciones,<br>
-            el viento acaricia emociones,<br>
-            cuando en tus ojos los míos se pierden.
+            Tengo ganas de ti 
             <p></p>
-            Y así, en el vasto Universo,<br>
-            el Cosmos nos junta en una única alma,<br>
-            y una explosión de emociones nos abraza<br>
-            cuando mi corazón, en el tuyo, se entrelaza. 
+            Tengo ganas de tu voz susurrando,<br>
+            mientras nos estamos amando<br> 
+            y mis piernas están temblando. 
+            <p></p>
+            Tengo ganas de ti
+            <p></p>
+            Tengo ganas de dormir en tu pecho,<br> 
+            de tenerte en mis brazos estrechos<br>
+            hasta despertar con el sol que ilumina nuestro techo. 
+            <p></p>
+            Tengo ganas de ti 
+            <p></p>
+            Sí, tengo ganas de ti,<br> 
+            porque si la distancia tiene el poder de alejar nuestros cuerpos,<br> 
+            ningún kilómetro nos prohibirá desearnos y amarnos.  
             <p></p>
             <p>Te amo en este universo,<br>
             y en infinitos más te amaré.</p>
